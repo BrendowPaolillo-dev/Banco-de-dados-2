@@ -12,7 +12,7 @@ import java.util.Scanner;
 /**
  * Created by Guilherme on 28/03/2016.
  */
-public class mainExecutavelForaProjeto {
+public class MainReal {
     public static void main(String[] args) {
 
         while (true) {

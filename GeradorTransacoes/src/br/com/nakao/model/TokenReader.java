@@ -45,9 +45,34 @@ public class TokenReader {
             }
             qtAcessos = operacoes.size();
             id = Character.getNumericValue(operacoes.get(0).charAt(1));
-            Transacao t = new Transacao(id,qtAcessos,operacoes,scheduleL,itens);
+            
+            List<Operacao> operacoesL = new ArrayList<>();
+            for(String s1:operacoes){
+                Operacao tmp = new Operacao(s1.trim());
+                operacoesL.add(tmp);                        
+            }
+            
+            List<Operacao> scheduleL2 = new ArrayList<>();
+            for(String s1:scheduleL){
+                Operacao tmp = new Operacao(s1.trim());
+                scheduleL2.add(tmp);                        
+            }
+            
+            Transacao t = new Transacao(id,qtAcessos,operacoesL,scheduleL2,itens);
             transacoes.add(t);
         }      
         return transacoes;
-    }   
+    }
+    public List<Operacao> getListOperacoes(String path){
+        Arquivo arq = new Arquivo();
+        String sched=arq.lerArquivo(path).get(0);
+        String operacoes[] = sched.trim().split(";");
+        List<Operacao> saida = new ArrayList<>();
+        for(String s:operacoes){
+                Operacao tmp = new Operacao(s.trim());
+                saida.add(tmp);                        
+        }   
+        return saida;        
+    }
+    
 }

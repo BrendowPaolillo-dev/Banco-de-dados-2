@@ -26,8 +26,8 @@ public class GeradorSchedule {
     
     public String getSchedulePrincipal(){
         String out="";
-        for(String s:principal.getAcoes()){
-            out+=s+"; ";
+        for(Operacao s:principal.getAcoes()){
+            out+=s.getStringOp()+"; ";
         }
         return out;
     }
@@ -40,7 +40,7 @@ public class GeradorSchedule {
         Random gerador = new Random();
         principal = new Schedule();
         for(int i = 0;i<=schedules.get(0).getAcoes().size()-1;i++){       
-            List<String> temporarios = new ArrayList<>();
+            List<Operacao> temporarios = new ArrayList<>();
             for(Schedule s:schedules){
                 temporarios.add(s.getAcoes().get(i));
             }

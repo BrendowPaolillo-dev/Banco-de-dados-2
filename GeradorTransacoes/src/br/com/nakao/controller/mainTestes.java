@@ -12,9 +12,10 @@ import java.util.Scanner;
 /**
  * Created by Guilherme on 28/03/2016.
  */
-public class mainExecutarDentroDoProjeto {
+public class mainTestes {
     public static void main(String[] args) {
-
+        System.out.println("Professor!!!! NÃO USE ESTE MAIN, USE O MainReal");
+        System.out.println("Professor!!!! NÃO USE ESTE MAIN, USE O MainReal");
         while (true) {
             System.out.println("1 - Gerar Transacoes");
             System.out.println("2 - Gerar Schedule");

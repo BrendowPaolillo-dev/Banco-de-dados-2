@@ -13,26 +13,27 @@ import java.util.List;
  * @author Nakao
  */
 public class Schedule {
-    private List<String> acoes;
+    private List<Operacao> acoes;
     
-    public Schedule(List<String> s){
+    
+    public Schedule(List<Operacao> s){
         acoes=s;
     }
     public Schedule(){
         acoes = new ArrayList<>();
     }
 
-    public List<String> getAcoes() {
+    public List<Operacao> getAcoes() {
         return acoes;
     }
 
-    public void add(String acao){
+    public void add(Operacao acao){
         acoes.add(acao);
     }
-    public String getAction(int pos){
+    public Operacao getAction(int pos){
         return acoes.get(pos);
     }
-    public void setAcoes(List<String> acoes) {
+    public void setAcoes(List<Operacao> acoes) {
         this.acoes = acoes;
     }
     

@@ -14,9 +14,9 @@ import java.util.Random;
  */
 public class Transacao {
     private int id;
-    private List<String> operacoes; //Reads e Writes somente
+    private List<Operacao> operacoes; //Reads e Writes somente
     private List<String> itens;
-    private List<String> schedule; //Reads e Writes + Si e Ei
+    private List<Operacao> schedule; //Reads e Writes + Si e Ei
     private int qtAcessos;
     
     
@@ -29,7 +29,7 @@ public class Transacao {
         gerarSchedule();
     }  
     
-    public Transacao(int id,int qtAcessos,List<String> operacoes,List<String> schedule,List<String> itens){
+    public Transacao(int id,int qtAcessos,List<Operacao> operacoes,List<Operacao> schedule,List<String> itens){
         this.id=id;
         this.qtAcessos=qtAcessos;
         this.operacoes=operacoes;
@@ -39,17 +39,17 @@ public class Transacao {
     
     private void gerarSchedule(){
         schedule = new ArrayList<>();
-        schedule.add("S"+this.id);
+        schedule.add(new Operacao("S"+this.id));
         for(int i=0;i<=operacoes.size()-1;i++){
             schedule.add(operacoes.get(i));
         }
-        schedule.add("E"+this.id);         
+        schedule.add(new Operacao("E"+this.id));         
     }
     
     public String getOperacoesW(){
         String out=("T"+this.id+": S"+this.id+"; ");
         for(int i=0;i<=operacoes.size()-1;i++){
-            out+=operacoes.get(i)+"; ";
+            out+=operacoes.get(i).getStringOp()+"; ";
         }        
         out+="E"+this.id+";";
         return out;
@@ -75,11 +75,11 @@ public class Transacao {
                 }
             }
             op+=")";            
-            operacoes.add(op);
+            operacoes.add(new Operacao(op));
             op="";
         }
     }
-    public List<String> getSchedule() {
+    public List<Operacao> getSchedule() {
         return schedule;
     }    
 }

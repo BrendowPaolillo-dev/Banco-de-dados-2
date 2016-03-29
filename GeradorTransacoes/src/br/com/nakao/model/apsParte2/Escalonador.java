@@ -5,6 +5,7 @@
  */
 package br.com.nakao.model.apsParte2;
 
+import br.com.nakao.model.Operacao;
 import br.com.nakao.model.Schedule;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +20,7 @@ public class Escalonador {
     private HashMap<String,String> itensDados = new HashMap<>();
     private Stack espera;
     private Schedule escalonado;
+    
     public Escalonador(Schedule p,List<String> itens){
         principal=p;
         for(String s:itens){
@@ -28,7 +30,7 @@ public class Escalonador {
     }
     
     private void escalonar(){
-        for(String s:principal.getAcoes()){
+        for(Operacao s:principal.getAcoes()){
             
             
         }
